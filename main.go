@@ -834,8 +834,8 @@ func (s *Server) sshkeyHandler(w http.ResponseWriter, r *http.Request) {
 	if !hcfg.Local && s.cfg.Jump != nil {
 		jumpComment := "rj:" + claims.KID
 		if role == "admin" {
-			// админу из джамп-слота запрещён -W куда-либо кроме pc:22
-			jumpComment = "rj:" + claims.KID + ":pc"
+			// админу из джамп-слота недоступен -W куда-либо кроме таргета
+			jumpComment = "rj:" + claims.KID + ":" + req.Host
 		}
 		jPriv, jPub, err := genKeyPair(jumpComment)
 		if err != nil {
@@ -847,7 +847,9 @@ func (s *Server) sshkeyHandler(w http.ResponseWriter, r *http.Request) {
 			writeErr(w, 500, "no vps host config for jump")
 			return
 		}
-		jumpOpts := `command="/bin/false",restrict,port-forwarding,permitopen="127.0.0.1:2222" `
+		// permitopen ровно на адрес таргета, видимый с vps (туннельный порт)
+		po := fmt.Sprintf("%s:%d", hcfg.Addr, hcfg.Port)
+		jumpOpts := fmt.Sprintf(`command="/bin/false",restrict,port-forwarding,permitopen="%s" `, po)
 		var err2 error
 		if role == "admin" {
 			err2 = s.provisionLocal(vps, jPub, jumpOpts)
