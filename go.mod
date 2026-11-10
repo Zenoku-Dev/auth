@@ -1,4 +1,4 @@
-module github.com/rival-afk/auth
+module github.com/Zenoku-Dev/auth
 
 go 1.27.0
 

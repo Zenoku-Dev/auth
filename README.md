@@ -1,13 +1,13 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/rival-afk/zenoku-design/main/assets/auth/png/readme-banner-dark.png">
-    <img src="https://raw.githubusercontent.com/rival-afk/zenoku-design/main/assets/auth/png/readme-banner.png" alt="auth" width="440">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Zenoku-Dev/zenoku-design/main/assets/auth/png/readme-banner-dark.png">
+    <img src="https://raw.githubusercontent.com/Zenoku-Dev/zenoku-design/main/assets/auth/png/readme-banner.png" alt="auth" width="440">
   </picture>
 </p>
 
 # auth
 
-rival-auth — единый сервис авторизации инфраструктуры zenoku (`auth.rival-afk.com`): HTTP API, JWT/HMAC-токены для [rsh](https://github.com/rival-afk/rsh) и прочих сервисов, SSH-шлюз и jump-хост к домашним узлам.
+rival-auth — единый сервис авторизации инфраструктуры zenoku (`auth.rival-afk.com`): HTTP API, JWT/HMAC-токены для [rsh](https://github.com/Zenoku-Dev/rsh) и прочих сервисов, SSH-шлюз и jump-хост к домашним узлам.
 
 ## Что внутри
 
@@ -16,7 +16,7 @@ rival-auth — единый сервис авторизации инфрастр
 - SSH-шлюз: авторизация и проброс к узлам (permitopen по порту таргета)
 - инструменты: `wcman`, `mindpage`, `mcproto`, `rustlings` и пр. (см. `main.go`, `tools/`)
 
-Лого и бренд-ассеты — в [rival-afk/zenoku-design](https://github.com/rival-afk/zenoku-design).
+Лого и бренд-ассеты — в [rival-afk/zenoku-design](https://github.com/Zenoku-Dev/zenoku-design).
 
 ## Сборка
 
